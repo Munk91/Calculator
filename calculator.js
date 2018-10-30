@@ -5,23 +5,44 @@ function add() {
     var inputValue = getElementValue('input')
     var stackValue = getElementValue('stack');
 
+    inputValue = parseInt(inputValue);
     if (isNaN(inputValue)) {
         return;
     }
 
     if (!stackValue) {
         getElement('stack').value += inputValue;
+    } else {
+        getElement('stack').value += ' + ' + inputValue;
+    }
+
+    result += inputValue;
+    getElement('input').value = '';
+    inputCounter++;
+}
+
+function subtract() {
+    var inputValue = getElementValue('input')
+    var stackValue = getElementValue('stack');
+
+    inputValue = parseInt(inputValue);
+    if (isNaN(inputValue)) {
         return;
     }
 
-    getElement('stack').value += ' + ' + inputValue;
+    if (!stackValue) {
+        getElement('stack').value += inputValue;
+    } else {
+        getElement('stack').value += ' - ' + inputValue;
+    }
 
-    result += inputValue;
+    result -= inputValue;
+    getElement('input').value = '';
     inputCounter++;
 }
 
 function calculate() {
-    console.log('calculate');
+    console.log(result);
 }
 
 function getElementValue(id) {
