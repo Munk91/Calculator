@@ -18,6 +18,7 @@ function add() {
 
     result += inputValue;
     getElement('input').value = '';
+    getElement('input').focus();
     inputCounter++;
 }
 
@@ -38,11 +39,12 @@ function subtract() {
 
     result -= inputValue;
     getElement('input').value = '';
+    getElement('input').focus();
     inputCounter++;
 }
 
 function calculate() {
-    console.log(result);
+    getElement('result').value = result;
 }
 
 function getElementValue(id) {
