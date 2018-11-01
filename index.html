@@ -33,5 +33,49 @@
         type="button"
         onclick="calculate()">=
     </button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <label for="amount">Amount to invest</label>
+    <input id="amount" type="number" value="100">
+    <br>
+    <label for="period">Years of investent</label>
+    <input id="period" type="number" value="18">
+    <br>
+    <label for="interval">Withdraw interval</label>
+    <select id="interval">
+        <option value="12">Monthly</option>
+        <option value="4">Quaterly</option>
+        <option value="2">Half-year</option>
+        <option value="1">Yearly</option>
+    </select>
+    <br>
+    <label for="returnRate">Return rate</label>
+    <input id="returnRate" type="number" step="0.1" value="1.25">
+    <br>
+    <label for="initialAmount">Initial amount</label>
+    <input id="initialAmount" type="number" value="0">
+    <br>
+    <button
+        type="button"
+        onclick="annuityCalculation(5000, 5, 12, 5, 5000)"
+    >
+        Månedtlig indbetaling
+    </button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <label for="annuityResult">Result of monthly annuity</label>
+    <input id="annuityResult" type="number" readonly>
 </body>
 </html> 
