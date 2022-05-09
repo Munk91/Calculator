@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <script
+      type="text/javascript"
+      src="js/BasicCalculator/BasicCalculator.js"
+    ></script>
+    <script type="text/javascript" src="js/helpers.js"></script>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+
+    <div style="width: 200px">
+      <label style="font-size: 20px" for="input">Input</label>
+      <input
+        id="input"
+        type="text"
+        autocomplete="off"
+        autofocus
+        onkeydown="input()"
+        pattern="[0-9]"
+        placeholder="Indsæt tal fra 0-9"
+        style="height: 30px; font-size: 20px"
+      />
+    </div>
+    <div style="margin-top: 20px; margin-bottom: 20px">
+      <button
+        type="button"
+        style="height: 30px; width: 30px; font-size: 20px"
+        onclick="add()"
+      >
+        +
+      </button>
+      <button
+        type="button"
+        style="height: 30px; width: 30px; font-size: 20px"
+        onclick="subtract()"
+      >
+        -
+      </button>
+      <button
+        type="button"
+        style="height: 30px; width: 30px; font-size: 20px"
+        onclick="calculate()"
+      >
+        =
+      </button>
+    </div>
+    <div style="width: 200px">
+      <label style="font-size: 20px" for="stack">Stacktrace</label>
+      <input
+        id="stack"
+        type="text"
+        readonly
+        style="height: 30px; font-size: 20px"
+      />
+    </div>
+    <div>
+      <label style="font-size: 20px" for="result">Result</label>
+      <input style="font-size: 20px" id="result" type="number" readonly />
+    </div>
+  </body>
+</html>
