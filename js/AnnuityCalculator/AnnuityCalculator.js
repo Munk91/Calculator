@@ -11,10 +11,17 @@ function annuityCalculation() {
   var payments = input.interval * input.period;
   var monthlyReturnRate = Math.pow(1 + input.returnRate / 100, 1 / 12) - 1;
 
-  capital =
-    input.amount *
-      ((Math.pow(1 + monthlyReturnRate, payments) - 1) / monthlyReturnRate) +
-    input.initialAmount;
+  if (input.amount === 0) {
+    console.log(input.initialAmount, input.returnRate, input.period);
+    capital = input.initialAmount * Math.pow(1 + (input.returnRate / 100), input.period);
+  } else {
+    capital =
+      input.amount *
+        ((Math.pow(1 + monthlyReturnRate, payments) - 1) / monthlyReturnRate) +
+      input.initialAmount;
+  }
+
+  capital = Math.round(capital);
 
   getElement("annuityResult").value = capital;
 }
