@@ -16,10 +16,9 @@
       <label style="font-size: 20px" for="input">Input</label>
       <input
         id="input"
-        type="text"
+        type="number"
         autocomplete="off"
         autofocus
-        onkeydown="input()"
         pattern="[0-9]"
         placeholder="Indsæt tal fra 0-9"
         style="height: 30px; font-size: 20px"
@@ -29,14 +28,14 @@
       <button
         type="button"
         style="height: 30px; width: 30px; font-size: 20px"
-        onclick="add()"
+        onclick="addToStack('+')"
       >
         +
       </button>
       <button
         type="button"
         style="height: 30px; width: 30px; font-size: 20px"
-        onclick="subtract()"
+        onclick="addToStack('-')"
       >
         -
       </button>
