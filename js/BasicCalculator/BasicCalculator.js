@@ -1,11 +1,6 @@
-var inputCounter = 0;
-var result = 0;
-
 function input() {
-  var inputValue = getElementValue("input");
-  var stackValue = getElementValue("stack");
-  var inputElement = getElement("input");
-  var stackElement = getElement("stack");
+  const inputValue = getElementValue("input");
+  const stackElement = getElement("stack");
 
   if (inputValue) {
     stackElement.value += inputValue;
@@ -13,52 +8,45 @@ function input() {
 }
 
 function addToStack(operator) {
-  var inputValue = getElementValue("input");
-  var stackValue = getElementValue("stack");
-
-  var stackValue;
+  const inputValue = getElementValue("input");
 
   if (!inputValue) {
     return;
   }
 
-  stackValue = inputValue + ' ' + operator;
+  const resultValue = getElementValue("result");
+
+  if (resultValue) {
+    resetForm();
+  }
+
+  const stackValue = getElementValue("stack");
+  const stackValueToAdd = inputValue + ' ' + operator;
 
   if (!stackValue) {
-    getElement("stack").value += stackValue;
+    getElement("stack").value += stackValueToAdd;
   } else {
-    getElement("stack").value += " " + stackValue;
+    getElement("stack").value += " " + stackValueToAdd;
   }
 
   clearElementValue("input");
 }
 
 function calculate() {
-  // str split on space
-  // if operator is +
-  //   result += input
-  // else if operator is -
-  //   result -= input
-  // else if operator is *
-  //   result *= input
-  // else if operator is /
-  //   result /= input
-  // else if operator is %
-  //   result %= input
-  // else if operator is ^
-  //   result ^= input
-  // else if operator is =
-  // else if operator is !
-  // else if operator is (
-  // else if operator is )
-  // else if operator is sqrt
-  // else if operator is sin
-  // else if operator is cos
-  // else if operator is tan
-  // else if operator is log
-  // else if operator is ln
-  // else if operator is pi
-  // else if operator is e
+  const inputValue = getElementValue("input");
+  const stackElement = getElement("stack");
+  const stackValue = getElementValue("stack");
 
-  getElement("result").value = 'WORK IN PROGRESS';
+  const stackToCalculate = stackValue + ' ' + inputValue;
+  stackElement.value = stackToCalculate;
+  clearElementValue("input");
+
+  const result = new Function('return ' + stackToCalculate)();
+  getElement("result").value = result;
+}
+
+function resetForm() {
+  clearElementValue("input");
+  clearElementValue("stack");
+  clearElementValue("result");
 }

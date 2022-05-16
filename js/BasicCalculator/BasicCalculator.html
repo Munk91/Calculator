@@ -27,28 +27,44 @@
     <div style="margin-top: 20px; margin-bottom: 20px">
       <button
         type="button"
-        style="height: 30px; width: 30px; font-size: 20px"
+        style="height: 40px; width: 40px; font-size: 20px"
         onclick="addToStack('+')"
       >
         +
       </button>
       <button
         type="button"
-        style="height: 30px; width: 30px; font-size: 20px"
+        style="height: 40px; width: 40px; font-size: 20px; margin-left: 10px;"
         onclick="addToStack('-')"
       >
         -
       </button>
       <button
         type="button"
-        style="height: 30px; width: 30px; font-size: 20px"
+        style="height: 40px; width: 40px; font-size: 20px; margin-left: 10px;"
+        onclick="addToStack('*')"
+      >
+        *
+      </button>
+      <button
+        type="button"
+        style="height: 40px; width: 40px; font-size: 20px; margin-left: 10px;"
+        onclick="addToStack('/')"
+      >
+        /
+      </button>
+    </div>
+    <div style="margin-top: 30px; margin-bottom: 30px;">
+      <button
+        type="button"
+        style="height: 50px; width: 50px; font-size: 20px;"
         onclick="calculate()"
       >
         =
       </button>
     </div>
     <div style="width: 200px">
-      <label style="font-size: 20px" for="stack">Stacktrace</label>
+      <label style="font-size: 20px" for="stack">Stack</label>
       <input
         id="stack"
         type="text"
@@ -56,9 +72,9 @@
         style="height: 30px; font-size: 20px"
       />
     </div>
-    <div>
-      <label style="font-size: 20px" for="result">Result</label>
-      <input style="font-size: 20px" id="result" type="number" readonly />
+    <div style="margin-top: 50px; width: 200px;">
+      <label style="font-size: 20px;" for="result">Result</label>
+      <input style="height: 30px; font-size: 20px;" id="result" type="number" readonly />
     </div>
   </body>
 </html>
