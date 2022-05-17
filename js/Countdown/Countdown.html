@@ -2,16 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <script type="text/javascript" src="./AnnuityCalculator.js"></script>
+
+    <script type="text/javascript" src="./Countdown.js"></script>
     <script type="text/javascript" src="../helpers.js"></script>
   </head>
   <body>
-    <h1>Annuity Calculator</h1>
+    <h1>Countdown</h1>
+
+    <h1 id="countdown">Insert values to start countdown</h1>
+
     <label for="amount">Amount to invest</label>
     <input id="amount" type="number" value="100" />
-    <br />
-    <label for="period">Years of investment</label>
-    <input id="period" type="number" value="18" />
     <br />
     <label for="interval">Deposit interval</label>
     <select id="interval">
@@ -25,10 +26,13 @@
     <label for="returnRate">Return rate</label>
     <input id="returnRate" type="number" step="1" value="7" />
     <br />
-    <label for="initialAmount">Initial amount</label>
-    <input id="initialAmount" type="number" value="0" />
+    <label for="capital">Capital</label>
+    <input id="capital" type="number" value="0" />
     <br />
-    <button type="button" onclick="annuityCalculation()">Calculate</button>
+    <label for="capitalGoal">Capital Goal</label>
+    <input id="capitalGoal" type="number" value="0" />
+    <br />
+    <button type="button" onclick="calculateCountdown()">Calculate</button>
     <br />
     <br />
     <br />

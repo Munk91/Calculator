@@ -21,7 +21,7 @@ function addToStack(operator) {
   }
 
   const stackValue = getElementValue("stack");
-  const stackValueToAdd = inputValue + ' ' + operator;
+  const stackValueToAdd = inputValue + " " + operator;
 
   if (!stackValue) {
     getElement("stack").value += stackValueToAdd;
@@ -37,11 +37,11 @@ function calculate() {
   const stackElement = getElement("stack");
   const stackValue = getElementValue("stack");
 
-  const stackToCalculate = stackValue + ' ' + inputValue;
+  const stackToCalculate = stackValue + " " + inputValue;
   stackElement.value = stackToCalculate;
   clearElementValue("input");
 
-  const result = new Function('return ' + stackToCalculate)();
+  const result = new Function("return " + stackToCalculate)();
   getElement("result").value = result;
 }
 

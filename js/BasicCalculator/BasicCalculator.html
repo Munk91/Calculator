@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8" />
 
-    <script
-      type="text/javascript"
-      src="./BasicCalculator.js"
-    ></script>
+    <script type="text/javascript" src="./BasicCalculator.js"></script>
     <script type="text/javascript" src="../helpers.js"></script>
   </head>
   <body>
@@ -33,30 +30,30 @@
       </button>
       <button
         type="button"
-        style="height: 40px; width: 40px; font-size: 20px; margin-left: 10px;"
+        style="height: 40px; width: 40px; font-size: 20px; margin-left: 10px"
         onclick="addToStack('-')"
       >
         -
       </button>
       <button
         type="button"
-        style="height: 40px; width: 40px; font-size: 20px; margin-left: 10px;"
+        style="height: 40px; width: 40px; font-size: 20px; margin-left: 10px"
         onclick="addToStack('*')"
       >
         *
       </button>
       <button
         type="button"
-        style="height: 40px; width: 40px; font-size: 20px; margin-left: 10px;"
+        style="height: 40px; width: 40px; font-size: 20px; margin-left: 10px"
         onclick="addToStack('/')"
       >
         /
       </button>
     </div>
-    <div style="margin-top: 30px; margin-bottom: 30px;">
+    <div style="margin-top: 30px; margin-bottom: 30px">
       <button
         type="button"
-        style="height: 50px; width: 50px; font-size: 20px;"
+        style="height: 50px; width: 50px; font-size: 20px"
         onclick="calculate()"
       >
         =
@@ -71,9 +68,14 @@
         style="height: 30px; font-size: 20px"
       />
     </div>
-    <div style="margin-top: 50px; width: 200px;">
-      <label style="font-size: 20px;" for="result">Result</label>
-      <input style="height: 30px; font-size: 20px;" id="result" type="number" readonly />
+    <div style="margin-top: 50px; width: 200px">
+      <label style="font-size: 20px" for="result">Result</label>
+      <input
+        style="height: 30px; font-size: 20px"
+        id="result"
+        type="number"
+        readonly
+      />
     </div>
   </body>
 </html>

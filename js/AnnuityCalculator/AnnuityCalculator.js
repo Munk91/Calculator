@@ -12,8 +12,8 @@ function annuityCalculation() {
   var monthlyReturnRate = Math.pow(1 + input.returnRate / 100, 1 / 12) - 1;
 
   if (input.amount === 0) {
-    console.log(input.initialAmount, input.returnRate, input.period);
-    capital = input.initialAmount * Math.pow(1 + (input.returnRate / 100), input.period);
+    capital =
+      input.initialAmount * Math.pow(1 + input.returnRate / 100, input.period);
   } else {
     capital =
       input.amount *
