@@ -1,52 +1,41 @@
+"use strict";
 function input() {
-  const inputValue = getElementValue("input");
-  const stackElement = getElement("stack");
-
-  if (inputValue) {
-    stackElement.value += inputValue;
-  }
+    const inputValue = getInputValue("input");
+    const stackElement = getInput("stack");
+    if (inputValue && stackElement) {
+        stackElement.value += inputValue;
+    }
 }
-
 function addToStack(operator) {
-  const inputValue = getElementValue("input");
-
-  if (!inputValue) {
-    return;
-  }
-
-  const resultValue = getElementValue("result");
-
-  if (resultValue) {
-    resetForm();
-  }
-
-  const stackValue = getElementValue("stack");
-  const stackValueToAdd = inputValue + " " + operator;
-
-  if (!stackValue) {
-    getElement("stack").value += stackValueToAdd;
-  } else {
-    getElement("stack").value += " " + stackValueToAdd;
-  }
-
-  clearElementValue("input");
+    const inputValue = getInputValue("input");
+    if (!inputValue) {
+        return;
+    }
+    const resultValue = getInputValue("result");
+    if (resultValue) {
+        resetForm();
+    }
+    const stackValue = getInputValue("stack");
+    const stackValueToAdd = inputValue + " " + operator;
+    if (!stackValue) {
+        setInputValue("stack", stackValue + stackValueToAdd);
+    }
+    else {
+        setInputValue("stack", stackValue + " " + stackValueToAdd);
+    }
+    clearInputValue("input");
 }
-
 function calculate() {
-  const inputValue = getElementValue("input");
-  const stackElement = getElement("stack");
-  const stackValue = getElementValue("stack");
-
-  const stackToCalculate = stackValue + " " + inputValue;
-  stackElement.value = stackToCalculate;
-  clearElementValue("input");
-
-  const result = new Function("return " + stackToCalculate)();
-  getElement("result").value = result;
+    const inputValue = getInputValue("input");
+    const stackValue = getInputValue("stack");
+    const stackToCalculate = stackValue + " " + inputValue;
+    setInputValue("stack", stackToCalculate);
+    clearInputValue("input");
+    const result = new Function("return " + stackToCalculate)();
+    setInputValue("result", result);
 }
-
 function resetForm() {
-  clearElementValue("input");
-  clearElementValue("stack");
-  clearElementValue("result");
+    clearInputValue("input");
+    clearInputValue("stack");
+    clearInputValue("result");
 }

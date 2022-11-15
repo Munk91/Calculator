@@ -1,36 +1,34 @@
+"use strict";
 function calculateCountdown() {
-  const input = getFormValuesById([
-    "capital",
-    "capitalGoal",
-    "amount",
-    "interval",
-    "returnRate",
-  ]);
-
-  const timeInYears =
-    Math.log(
-      (input.capitalGoal * (input.returnRate / 100)) /
+    const input = getFormValuesById([
+        "capital",
+        "capitalGoal",
+        "amount",
+        "interval",
+        "returnRate",
+    ]);
+    console.table(input);
+    const timeInYears = Math.log((input.capitalGoal * (input.returnRate / 100)) /
         (input.amount * input.interval) +
-        1
-    ) /
-      Math.log(1 + input.returnRate / 100) -
-    1;
-
-  getElement("timeResult").value = timeInYears;
+        1) /
+        Math.log(1 + input.returnRate / 100) -
+        1;
+    setInputValue("timeResult", timeInYears.toString());
+    const countdownInterval = setInterval(() => {
+        const time = getTime(timeInYears).next().value;
+        const countdownInput = getInput("conutdown");
+        if (!countdownInput)
+            return;
+        countdownInput.innerHTML = "You can retire in: " + time;
+    }, 1000);
+    // Find some way to clear the timer, when you calculate the second time.
 }
-
-function setTime() {
-  const now = new Date();
-}
-
-function getFormValuesById(ids) {
-  var values = {};
-
-  var element;
-  for (i = 0; i < ids.length; i++) {
-    element = getElement(ids[i]);
-    values[element.id] = parseInt(element.value);
-  }
-
-  return values;
+function* getTime(timeInYears) {
+    const now = new Date();
+    const time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    console.log(time, timeInYears);
+    while (true) {
+        // yield time;
+        yield Date.now();
+    }
 }
